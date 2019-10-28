@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<header>
+  <script th:src="@{/vendor/jquery/js/jquery.min.js}"></script>
+  <script th:src="@{/js/sockjs.js}"></script>
+  <script th:src="@{/js/stomp-node.js}"></script>
+  <script th:src="@{/js/stomp.js}"></script>
+  <script th:src="@{/js/scripts.js}"></script>
+</header>
+<body>
+
+<div id = "main-content" class = "container">
+  <div class = "row">
+    <div class = "col-md-6">
+      <form class = "form-inline">
+        <div class = "form-group">
+          <label for = "connect">WebSocket connection:</label>
+          <button id = "connect" class = "btn btn-default" type = "submit">Connect</button>
+          <button id = "disconnect" class = "btn btn-default" type = "submit" disabled = "disabled">Disconnect
+          </button>
+        </div>
+      </form>
+    </div>
+    <!--
+    <div class = "col-md-6">
+      <form class = "form-inline">
+        <button id = "send" class = "btn btn-default" type = "submit">Send</button>
+      </form>
+    </div>
+    -->
+  </div>
+
+  <div class  =  "row">
+    <div class  =  "col-md-12">
+      <div id="messagesContainer"></div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

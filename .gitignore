@@ -1,0 +1,13 @@
+*/target/
+*/maven-wrapper.jar
+
+*.swo
+*.swp
+uploads/
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
