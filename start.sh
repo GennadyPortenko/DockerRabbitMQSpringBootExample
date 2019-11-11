@@ -42,5 +42,10 @@ docker exec $RABBIT_CONTAINER_NAME rabbitmqctl set_permissions $RABBIT_LISTENER 
 
 docker exec $RABBIT_CONTAINER_NAME rabbitmqadmin -V / declare binding source=amq.fanout destination=queue1 -u admin -p admin
 docker exec $RABBIT_CONTAINER_NAME rabbitmqadmin -V / declare binding source=amq.fanout destination=queue2 -u admin -p admin
+docker exec $RABBIT_CONTAINER_NAME rabbitmqadmin -V / declare binding source=amq.topic destination=queue1 routing_key=topic1.# -u admin -p admin
+docker exec $RABBIT_CONTAINER_NAME rabbitmqadmin -V / declare binding source=amq.topic destination=queue2 routing_key=topic2.*.* -u admin -p admin
+docker exec $RABBIT_CONTAINER_NAME rabbitmqadmin -V / declare binding source=amq.topic destination=queue1 routing_key=topic3 -u admin -p admin
+docker exec $RABBIT_CONTAINER_NAME rabbitmqadmin -V / declare binding source=amq.topic destination=queue2 routing_key=topic3 -u admin -p admin
+
 
 ./run-listeners.sh

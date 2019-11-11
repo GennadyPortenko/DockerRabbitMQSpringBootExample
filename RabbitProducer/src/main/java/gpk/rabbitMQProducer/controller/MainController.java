@@ -17,6 +17,7 @@ public class MainController {
 
     private final AmqpTemplate template;
     private @Value("${rabbitmq.fanout.exchange.name}") String FANOUT_EXCHANGE_NAME;
+    private @Value("${rabbitmq.topic.exchange.name}") String TOPIC_EXCHANGE_NAME;
     private @Value("${rabbitmq.queue.name}") String routingKey;
     private String exchange = "";
 
@@ -34,6 +35,13 @@ public class MainController {
     String startFanout(@PathVariable long interval) {
         this.routingKey = "";
         this.exchange = FANOUT_EXCHANGE_NAME;
+        return start(interval);
+    }
+
+    @RequestMapping("/start/topic/{routingKey}/{interval}")
+    String startTopic(@PathVariable String routingKey, @PathVariable long interval) {
+        this.routingKey = routingKey;
+        this.exchange = TOPIC_EXCHANGE_NAME;
         return start(interval);
     }
 

@@ -31,6 +31,9 @@ You can use the provided REST API to publish messages with an interval in millis
 
 * `rabbit-producer-host/start/direct/{routingKey}/{interval}`
 * `rabbit-producer-host/start/fanout/{interval}`
+* `rabbit-producer-host/start/topic/topic1.#/{interval}`          -> queue1
+* `rabbit-producer-host/start/topic/topic2.*.*/{interval}`       -> queue2
+* `rabbit-producer-host/start/topic/topic3/{interval}`             -> queue1 and queue2
 * `rabbit-producer-host/stop`
 
 Routing key values for the direct exchange are 'queue1' and 'queue2' by default (see `start.sh` script).
